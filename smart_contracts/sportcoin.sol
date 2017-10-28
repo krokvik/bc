@@ -180,8 +180,9 @@ contract SPORTCoin is owned, TokenERC20 {
 
     uint256 public buyPrice;
     uint256 public usualReward;
-    /*Rewards[] public rewards;*/
+    Rewards[] public rewards;
 
+    mapping (uint256 => bool) public completedRewards;
     mapping (address => bool) public frozenAccount;
 
     event FrozenFunds(address target, bool frozen);
@@ -211,20 +212,13 @@ contract SPORTCoin is owned, TokenERC20 {
     function _sendSportReward(address target, uint256 rewardAmount) internal {
         balanceOf[target] += rewardAmount;
         totalSupply += rewardAmount;
-        /*rewards.push(Rewards(target, id, rewardAmount));*/
         Reward(target, rewardAmount);
     }
 
-    function sendPersonalSportReward(address target, uint256 rewardAmount) onlyOwner public  {
-        balanceOf[target] += rewardAmount;
-        totalSupply += rewardAmount;
-        Reward(target, rewardAmount);
-    }
-
-    function applyRewards(address[] list) onlyOwner public {
-      for (uint8 i = 0; i<list.length-1; i++) {
-        _sendSportReward(list[i], usualReward);
-      }
+    function sendPersonalSportReward(address target, uint256 rewardAmount, uint id) onlyOwner public  {
+        require(!completedRewards[id]);
+        _sendSportReward(target, rewardAmount);
+        rewards.push(Rewards(target, id, rewardAmount));
     }
 
     function setPrices(uint256 newBuyPrice) onlyOwner public {
