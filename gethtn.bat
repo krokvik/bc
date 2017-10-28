@@ -1,0 +1,1 @@
+geth --dev --rpccorsdomain "*" --rpc --networkid 8545 --minerthreads "1"  --rpcapi "admin,debug,miner,shh,txpool,personal,eth,net,web3" console
