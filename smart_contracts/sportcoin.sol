@@ -210,6 +210,9 @@ contract SPORTCoin is owned, TokenERC20 {
     }
 
     function _sendSportReward(address target, uint256 rewardAmount) internal {
+        if (rewardAmount == 0) {
+          rewardAmount = usualReward;
+        }
         balanceOf[target] += rewardAmount;
         totalSupply += rewardAmount;
         Reward(target, rewardAmount);
