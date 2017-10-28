@@ -4,9 +4,14 @@
 
 ## How to start test network:
 
-#### install Geth
+#### Install Geth
 - [Ubuntu](https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu)
 - [MacOS](https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac)
+
+#### Install Mist
+https://github.com/ethereum/mist/releases
+
+#### Do the magic
 
 ``` bash
 # start geth test network
@@ -21,3 +26,5 @@ personal.newAccount("<put_password_here>")
 # Ubuntu:
 /usr/bin/mist --rpc http://localhost:8545
 ```
+
+After this - deploy smart contract **sportcoin.sol** from "smart_contracts" folder. Now you are ready to use your contracts!
