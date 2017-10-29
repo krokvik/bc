@@ -8,7 +8,7 @@
 - [Ubuntu](https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu)
 - [MacOS](https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Mac)
 
-#### Install Mist
+#### Install Mist or Ethereum Wallet (better Ethereum Wallet)
 https://github.com/ethereum/mist/releases
 
 #### Do the magic
@@ -22,9 +22,9 @@ personal.newAccount("<put_password_here>")
 
 # open Mist wallet with parameters regarding your test network
 # Mac:
-/Applications/Mist.app/Contents/MacOS/Mist --rpc http://localhost:8545
+open -a "Ethereum Wallet.app" --args --rpc http://0.0.0.0:8545
 # Ubuntu:
-/usr/bin/mist --rpc http://localhost:8545
+ethereumwallet —rpc http://localhost:8545
 ```
 
 After this - deploy smart contract **sportcoin.sol** from "smart_contracts" folder. Now you are ready to use your contracts!
