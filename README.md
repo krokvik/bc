@@ -28,3 +28,13 @@ ethereumwallet —rpc http://localhost:8545
 ```
 
 After this - deploy smart contract **sportcoin.sol** from "smart_contracts" folder. Now you are ready to use your contracts!
+
+#### How to mine in geth console:
+
+``` bash
+# start mining
+miner.start();
+
+# stop mining
+miner.stop()
+```
